@@ -22,11 +22,6 @@ export default {
   components: {
     AppHeader,
     Footer
-  },
-
-  data: () => ({
-  }),
-  mounted(){
   }
 };
 </script>

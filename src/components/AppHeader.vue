@@ -39,24 +39,15 @@ export default {
               return (this.isAuth)? [
                   {
                       title:"Account management page",
-                      route:"/account",
-                  // },{
-                  //     title:"Test",
-                  //     route:"/test"
-                  }/*,{
-                      title:"Odhlasit se",
-                      route:"/logout"
-                  },*/
+                      route:"/account"
+                  }
               ]:[
                   { 
-                      title:"Prihlasit se",
+                      title:"Přihlásit se",
                       route:"/singin"
                   },{
                       title:"Registrace",
                       route:"/singup"
-                  // },{
-                  //     title:"Test",
-                  //     route:"/test"
                   }
             ]
         }

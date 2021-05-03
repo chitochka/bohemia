@@ -1,7 +1,7 @@
 <template>
   <v-footer dark padless>
     <v-col class="text-center"       cols="12"    >
-      vytvoril <b> Alexey Latyshev</b> pro <b> Bohemia Interactive a.s.   </b>
+      <code> Vytvořil  Alexey Latyshev pro Bohemia Interactive a.s. </code>
     </v-col>
   </v-footer>
 </template>

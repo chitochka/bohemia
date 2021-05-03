@@ -13,21 +13,22 @@
                     <v-alert  dismissible :value="!alertHide" type="error" >  {{this.alertMessage}}  </v-alert>
                     <br>
                     <v-text-field 
-                         :rules="this.rules" :hint="this.txt.pozm.login" error-count="2"
+                        :rules="this.rules" :hint="this.txt.pozm.login" error-count="2"
                         :disabled="disabled"  v-model.trim="loginName" name="login" label="NickName" type="text" ></v-text-field>
                     <v-text-field 
                         :error="!$v.password.required"  :rules="this.rules"  :hint="this.txt.pozm.heslo"
                         :disabled="disabled"  v-model.trim="password" name="password" label="Heslo" type="password"></v-text-field>
+                    <br>
                   </v-form>
                 </v-card-text>
                 
                 <v-divider></v-divider>
                 
                 <v-card-actions >
+                  <v-btn color="error" :disabled="disabled" @click="cancel"> Zrusit</v-btn>
                   <v-spacer></v-spacer>
                   <v-btn color="primary" 
                     :disabled="disabled || $v.$invalid" :loading="loading" @click="singIn">Prihlasit se </v-btn>
-                  <v-btn color="error" :disabled="disabled" @click="cancel"> Zrusit</v-btn>
                 </v-card-actions>
               </v-card>
 
@@ -46,8 +47,8 @@ export default {
   name: 'SignIn',
   data() {
       return {
-        loginName: "alex",
-        password: "123",
+        loginName: "",
+        password: "",
 
         loading: false,
         disabled: false,
@@ -76,7 +77,6 @@ export default {
                     this.alertHide = true
                 }, 4500)
             })
-
     },
     cancel: function(){ 
         this.$router.push("/")
@@ -86,7 +86,6 @@ export default {
         loginName:{
             required,
             minLength: minLength(3)
-
         },
         password:{
             required,

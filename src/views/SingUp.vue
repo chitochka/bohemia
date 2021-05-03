@@ -34,10 +34,6 @@
                   </v-card-text>
               </v-window-item>
 
-
-
-
-
               <!-- OKNO  2  -->
               <v-window-item :value="2">
                   <v-card-text>
@@ -55,12 +51,6 @@
                        <div class="text-right caption grey--text text--darken-1 font-italic"> {{txt.pozm.twicePass}} </div>
                   </v-card-text>
               </v-window-item>
-
-
-
-
-
-
 
               <!-- OKNO  3  -->
               <v-window-item :value="3">
@@ -96,7 +86,6 @@
 
       </v-card>
 
-
     <!--/ CARD -->
     </v-flex>
   </v-layout>
@@ -125,8 +114,8 @@ export default {
             ],
 
             userData : {
-                loginName: "Alex",
-                email: 'a@a.cz',
+                loginName: "",
+                email: '',
                 password: null,
                 jmeno: '',
                 primeni: "",
@@ -188,8 +177,8 @@ export default {
             this.disabled = 
             this.alertHide  =  true
 
-            this.userData.loginName = this.userData.loginName.toLowerCase()
-            this.userData.email = this.userData.email.toLowerCase()
+            this.userData.loginName = this.userData.loginName
+            this.userData.email = this.userData.email
             
             db.registrace(this.userData).
                 then( (message)=>{ 
@@ -208,8 +197,6 @@ export default {
 
         stepTwo(){
             this.step++
-            // TODO : pridat  vuelidateion vytrorit validace 
-            //        npm install vuelidate
         },
 
         stepThree(){
@@ -224,7 +211,6 @@ export default {
         },
 
         saveData(){
-            console.log('saveDATA = ', this.step)
             switch (this.step) {
                 case 1: this.stepOne(); break;
                 case 2: this.stepTwo(); break;

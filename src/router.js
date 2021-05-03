@@ -4,7 +4,6 @@ import Home from "./views/Home.vue"
 import Account from "./views/AccountPage.vue"
 import SingUp from "./views/SingUp.vue"
 import SingIn from "./views/SingIn.vue"
-import db from './db.js'
 
 Vue.use(Router)
 
@@ -30,21 +29,10 @@ const routes = [
     component: SingIn,
     beforeEnter:requireAuth
   }
-  // // ----------
-  // ,  {
-  //   path: '/test',
-  //   name: 'Test',
-  //   component: Test
-  // }
 ]
 
 
 async function requireAuth(to, from, next) {
-  // console.clear()
-  console.log("Auth = ", localStorage.isAuth)
-  console.log(from.path, "  🚀 ~ from", from)
-  console.log(to.path, "  🚀 ~ to", to)
-
   if (localStorage.isAuth){
     if (to.path === '/account') next()
     else next("/account")
@@ -52,11 +40,8 @@ async function requireAuth(to, from, next) {
     if (to.path === '/account') next('/')
     else next()
   }
-
-
 }
  
-
 
 const router = new Router({
   mode: 'history',
